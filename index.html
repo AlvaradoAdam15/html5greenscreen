@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Metia Labs HTML 5 Chroma Key</title>
-    <meta charset="utf-8">        
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script>
         var oggSupported = false;
@@ -32,13 +32,13 @@
                 document.getElementById("videodata").play();
                 document.getElementById("videoBackgrounddata").play();
                 document.getElementById("PlayPause").value = "Pause";
-                isPlaying = true;               
+                isPlaying = true;
             }
             else {
                 document.getElementById("videodata").pause();
                 document.getElementById("videoBackgrounddata").pause();
                 document.getElementById("PlayPause").value = "Play";
-                isPlaying = false;                
+                isPlaying = false;
             }
             draw();
         }
@@ -122,14 +122,14 @@
                                 }
                             }
                             if (change) {
-                                var gray = (imgData.data[((imgData.width * y) + x) * 4 + 0] * .393) + (imgData.data[((imgData.width * y) + x) * 4 + 1] * .769) + (imgData.data[((imgData.width * y) + x) * 4 + 2] * .189);                                
+                                var gray = (imgData.data[((imgData.width * y) + x) * 4 + 0] * .393) + (imgData.data[((imgData.width * y) + x) * 4 + 1] * .769) + (imgData.data[((imgData.width * y) + x) * 4 + 2] * .189);
                                 imgData.data[((imgData.width * y) + x) * 4] = (gray * 0.2) + (imgBackgroundData.data[((imgData.width * y) + x) * 4] *0.9);
                                 imgData.data[((imgData.width * y) + x) * 4 + 1] = (gray * 0.2) + (imgBackgroundData.data[((imgData.width * y) + x) * 4 + 1]*0.9);
                                 imgData.data[((imgData.width * y) + x) * 4 + 2] = (gray * 0.2) + (imgBackgroundData.data[((imgData.width * y) + x) * 4 + 2] * 0.9);
                                 imgData.data[((imgData.width * y) + x) * 4 + 3] = 255;
                             }
                         }
-                        
+
                     }
                 }
 
@@ -137,21 +137,21 @@
                     var r = imgData.data[i + 0];
                     var g = imgData.data[i + 1];
                     var b = imgData.data[i + 2];
-                    var a = imgData.data[i + 3];                
+                    var a = imgData.data[i + 3];
                     if (a == 0) {
                             imgData.data[i + 0] = imgBackgroundData.data[i + 0];
                             imgData.data[i + 1] = imgBackgroundData.data[i + 1];
                             imgData.data[i + 2] = imgBackgroundData.data[i + 2];
                             imgData.data[i + 3] = imgBackgroundData.data[i + 3];
-                    }                   
+                    }
                 }
                 context.putImageData(imgData, 0, 0);
-              
+
             }
-        }      
+        }
 
         function SupportedVideoFormat() {
-            var video = document.createElement("video"); 
+            var video = document.createElement("video");
             if (video.canPlayType('video/ogg; codecs="theora, vorbis"')) {
                 // it can play (maybe)!
                 oggSupported = true;
@@ -222,13 +222,13 @@
     body
     {
         font-family:Verdana;
-        font-size:12px;        
+        font-size:12px;
     }
     h1
     {
         font-size:14px;
         font-weight:bold;
-        
+
     }
     .clearfix:before,
     .clearfix:after,
@@ -262,7 +262,7 @@
           list-style-type:none;
 
       }
-      
+
       #backgroundvideoselection, #videocontrols,#backgroundimageselection
       {
           float:left;
@@ -279,7 +279,7 @@
       }
       .instructions
       {
-       max-width:400px;   
+       max-width:400px;
       }
 </style>
 </head>
@@ -299,7 +299,7 @@
             <source src="videos/Gav_green.mp4" type='video/mp4' />
             <source src="videos/Gav_green.webm" type='video/webm' />
             <source src="videos/Gav_green.ogv" type='video/ogg' />
-        </video>  
+        </video>
     </div>
     <div id="backgroundvideo">
         <p>Background Video</p>
@@ -327,11 +327,11 @@
     <div id="backgroundimageselection">
          <p>Background image selection</p>
     <ul>
-        <li><input type="radio" id="bg1" name="background" value="images/background1.jpg" onclick="loadBackgroundVideo();" /><label for="bg1">Train station</label></li>
-        <li><input type="radio" id="bg2" name="background" value="images/background2.jpg" onclick="loadBackgroundVideo();" /><label for="bg2">Road junction</label></li>
-        <li><input type="radio" id="bg3" name="background" value="images/background3.jpg" onclick="loadBackgroundVideo();" /><label for="bg3">Building site</label></li>
-        <li><input type="radio" id="bg4" name="background" value="images/background4.jpg" onclick="loadBackgroundVideo();" /><label for="bg3">Drawing train station</label></li>
-        
+        <li><input type="radio" id="bg1" name="background" value="images/background1.jpg" onclick="loadBackgroundVideo();" /><label for="bg1">Background 1</label></li>
+        <li><input type="radio" id="bg2" name="background" value="images/background2.jpg" onclick="loadBackgroundVideo();" /><label for="bg2">Background 2</label></li>
+        <li><input type="radio" id="bg3" name="background" value="images/background3.jpg" onclick="loadBackgroundVideo();" /><label for="bg3">Background 3</label></li>
+        <li><input type="radio" id="bg4" name="background" value="images/background4.jpg" onclick="loadBackgroundVideo();" /><label for="bg3">Background 4</label></li>
+
     </ul>
     </div>
     <div id="videocontrols">
